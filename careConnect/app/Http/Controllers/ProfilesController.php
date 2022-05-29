@@ -15,30 +15,30 @@ class ProfilesController extends Controller
 
         $follows = (auth()->user())  ? auth()->user()->following->contains($user) : false;
 
-        $postCount = Cache::remember(
-            'count.posts.' . auth()->user()->id, 
-            now()->addSeconds(30), 
-            function () use ($user) {
-                 return auth()->user()->posts->count();
-            });
+        // $postCount = Cache::remember(
+        //     'count.posts.' . auth()->user()->id, 
+        //     now()->addSeconds(30), 
+        //     function () use ($user) {
+        //          return auth()->user()->posts->count();
+        //     });
 
-        $followerCount = Cache::remember(
-            'count.followers.' . auth()->user()->id, 
-            now()->addSeconds(30), 
-            function () use ($user) {
-                    return auth()->user()->profile->followers->count();
-            });
+        // $followerCount = Cache::remember(
+        //     'count.followers.' . auth()->user()->id, 
+        //     now()->addSeconds(30), 
+        //     function () use ($user) {
+        //             return auth()->user()->profile->followers->count();
+        //     });
 
-        $followingCount = Cache::remember(
-            'count.following.' . auth()->user()->id, 
-            now()->addSeconds(30), 
-            function () use ($user) {
-                    return auth()->user()->following->count();
-            });
+        // $followingCount = Cache::remember(
+        //     'count.following.' . auth()->user()->id, 
+        //     now()->addSeconds(30), 
+        //     function () use ($user) {
+        //             return auth()->user()->following->count();
+        //     });
 
        
         $user = User::findOrFail($user);
-        return view('profiles.index', compact('user', 'follows','postCount','followerCount','followingCount'));
+        return view('profiles.index', compact('user', 'follows')); //,'postCount','followerCount','followingCount'
     }
 
     public function edit(User $user)
