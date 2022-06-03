@@ -26,7 +26,7 @@
                 
                 <hr>
                 <div>
-                    <p>{{  $user->description  }}</p>
+                    <p>{{  $user->profile->description  }}</p>
                 </div>
                 
             </div>

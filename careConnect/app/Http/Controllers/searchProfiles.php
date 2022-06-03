@@ -17,11 +17,9 @@ class searchProfiles extends Controller
     {
         // $users = User::all();
         $users = User::where('id', '!=', auth()->id())->simplePaginate(5);
-
-        // $users = User::whereIn('name',$user);
-        // $users = User::whereIn('users.id',$user)->get();
         // dd($users);
+
         return view('searchProfiles.index',compact('users'));
     }
-    // ->get()->paginate(5)
+
 }
