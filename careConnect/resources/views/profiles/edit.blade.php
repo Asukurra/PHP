@@ -43,7 +43,7 @@
                     type="text" 
                     class="form-control @error('url') is-invalid @enderror" 
                     name="url" 
-                    value="{{ old('url') ?? $user->profile->url }}" required 
+                    value="{{ old('url') ?? $user->profile->url }}"  
                     autocomplete="url" autofocus>
 
                     @error('url')

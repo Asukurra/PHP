@@ -27,6 +27,8 @@ Route::post('follow/{user}',[App\Http\Controllers\FollowsController::class, 'sto
 
 Route::get('/', [App\Http\Controllers\PostsController::class, 'index']);
 
+Route::get('/users', [App\Http\Controllers\searchProfiles::class, 'index']);
+
 Route::get('/p/create', [App\Http\Controllers\PostsController::class, 'create']);
 Route::get('/p/{post}', [App\Http\Controllers\PostsController::class, 'show']);
 Route::post('/p', [App\Http\Controllers\PostsController::class, 'store']);
